@@ -1,0 +1,1 @@
+# turma-10-tribo-A
