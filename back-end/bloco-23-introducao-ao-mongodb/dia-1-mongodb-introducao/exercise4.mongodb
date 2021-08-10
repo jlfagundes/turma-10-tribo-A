@@ -1,0 +1,2 @@
+use('sample')
+db.bios.find({ "name.first": "Jhon"}).pretty();
