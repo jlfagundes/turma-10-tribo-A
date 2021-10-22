@@ -15,8 +15,10 @@ const server = net.createServer((connection) => {
   escrever/devolver uma mensagem para o cliente. */
   // connection.write('Mensagem do servidor!\r\n');
   // connection.pipe(connection);
+  server.getConnections((err, count) => {
+    console.log(count);
+  });
 });
-
 
 
 
