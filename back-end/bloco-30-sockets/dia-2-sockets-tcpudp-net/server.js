@@ -5,19 +5,24 @@ const net = require('net');
 const server = net.createServer((connection) => {
   console.log('Cliente conectado');
   
+  server.getConnections((err, count) => {
+    console.log(count);
+  });
+
   /* Assim como um evento normal do Node.js, o método ".on()" escuta um evento em específico e,
   quando ele é ativado, nossa função de callback é chamada. */
   connection.on('end', () => {
     console.log('cliente desconectado')
   });
 
+  connection.on('data', (data) => {
+    console.log(`O cliente disse: ${data}`);
+  });
+
   /* Nessa conexão que foi aberta, podemos fazer várias coisas. Uma delas é
   escrever/devolver uma mensagem para o cliente. */
   // connection.write('Mensagem do servidor!\r\n');
   // connection.pipe(connection);
-  server.getConnections((err, count) => {
-    console.log(count);
-  });
 });
 
 
